@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../models/user';
+import { User } from '../models/User';
 
 
 @Injectable({

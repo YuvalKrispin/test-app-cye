@@ -6,10 +6,13 @@
         <p>Programer</p>
     </div>
     <div class="navLinks">
-        <div class="linkContainer"><span class="iconNav">icon </span><span class="textNav">this is the navlink</span></div>
-        <div class="linkContainer"><span class="iconNav">icon </span><span class="textNav">this is the navlink</span></div>
-        <div class="linkContainer"><span class="iconNav">icon </span><span class="textNav">this is the navlink</span></div>
-        <div class="linkContainer"><span class="iconNav">icon </span><span class="textNav">this is the navlink</span></div>
-        <div class="linkContainer"><span class="iconNav">icon </span><span class="textNav">this is the navlink</span></div>
+        <div class="linkContainer" *ngFor="let link of links">
+            <span class="iconNav">
+                <mat-icon>{{link.icon}}</mat-icon>
+            </span>
+            <span class="textNav">
+                {{link.text}}
+            </span>
+        </div>
     </div>
 </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationLink } from 'src/app/models/NavigationLink';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   selector: 'app-side-menu',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideMenuComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private navigationLinkService: NavigationService ) { }
+  links: NavigationLink[] = [];
   ngOnInit(): void {
+    this.links = this.navigationLinkService.NavigationLinks;
+    console.log(this.links)
   }
 
 }

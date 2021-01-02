@@ -12,7 +12,7 @@
         top: 10px;
         left: 10px;
         cursor: pointer;
-    } 
+    }
     .imageContainer {
         margin-top: 60px;
         img {
@@ -37,14 +37,19 @@
         margin-top: 60px;
         .linkContainer {
             height: 60px;
-            line-height: 60px;
             cursor: pointer;
             &:hover {
                 background-color: #223342;
-            border-right: 5px #f19c28 solid;
+                border-right: 5px #f19c28 solid;
             }
-            .iconNav{
+            .iconNav {
+                position: relative;
+                top: 6px;
                 margin-left: 60px;
+                margin-right: 10px;
+            }
+            .textNav {
+                line-height: 60px;
             }
         }
     }
