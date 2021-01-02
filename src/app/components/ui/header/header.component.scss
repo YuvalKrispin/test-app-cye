@@ -1,0 +1,16 @@
+.container{
+    background-color:	#f9f9f9;
+    border:rgb(221, 221, 221) 2px solid;
+    width:100%;
+    height: 80px;
+    display:flex;
+    flex-direction: row-reverse;
+    text-align: center;
+    .iconsContainer{
+        position: relative;
+        margin-top: 30px;
+        span { 
+            margin:auto 10px;
+        }
+    }
+}

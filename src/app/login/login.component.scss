@@ -29,6 +29,9 @@
                 outline: none;
             }
         }
+        input.ng-invalid.ng-touched{
+            border:red 1px solid
+        }
         button {
             display: flex;
             justify-content: center;
@@ -42,6 +45,7 @@
             background-color: lightseagreen;
             color: white;
             line-height: 30px;
+            cursor: pointer;
         }
         a {
             display: flex;

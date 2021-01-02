@@ -1,9 +1,11 @@
 <div class="centerContainer">
- <div class="card">
-     <h3>Sign In</h3>
-     <input placeholder="E-mail or Username" type="text">
-     <input placeholder="Password" type="password">
-     <button>Login</button>
-     <a routerLink="/sign-up" class="redirectLink">Create User</a>
- </div>
+    <div class="card">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <h3>Sign In</h3>
+            <input placeholder="E-mail" type="text" ngModel name="email" email required>
+            <input placeholder="Password" type="password" ngModel name="password" required>
+            <button>Login</button>
+        </form>
+        <a routerLink="/sign-up" class="redirectLink">Create User</a>
+    </div>
 </div>

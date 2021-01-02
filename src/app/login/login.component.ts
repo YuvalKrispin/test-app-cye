@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,13 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   httpcall: any;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient , private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.httpcall = this.getHttpRequest();
-    console.log(this.httpcall)
   }
-  getHttpRequest() {
-    return this.http.get<{ name: string }>('https://reqres.in/api/register')
+
+  onSubmit(form:NgForm){
+    console.log('submitted')
+    this.authService.loginAttempt(form.form.value)
   }
 }

@@ -1,0 +1,51 @@
+.container {
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 275px;
+    background-color: #293c4e;
+    color: white;
+    .close {
+        font-weight: 900;
+        font-size: 20px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        cursor: pointer;
+    }
+    .imageContainer {
+        margin-top: 60px;
+        img {
+            border: white 3px solid;
+            margin: auto;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            display: block;
+        }
+        h2 {
+            margin: 20px auto 5px;
+            text-align: center;
+            font-weight: 800;
+        }
+        p {
+            text-align: center;
+            color: #5d7683;
+        }
+    }
+    .navLinks {
+        margin-top: 60px;
+        .linkContainer {
+            height: 60px;
+            line-height: 60px;
+            cursor: pointer;
+            &:hover {
+                background-color: #223342;
+            border-right: 5px #f19c28 solid;
+            }
+            .iconNav{
+                margin-left: 60px;
+            }
+        }
+    }
+}
