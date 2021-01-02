@@ -1,0 +1,66 @@
+h3 {
+    color: rgb(43, 43, 43);
+    font-weight: 700;
+    font-size: 20px;
+}
+p {
+    color: rgb(94, 94, 94);
+}
+.usersList {
+    margin-top: 120px;
+    display: grid;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px;
+    grid-template-columns: 220px 220px;
+    gap: 50px;
+
+    .singleUser {
+        display: flex;
+        height: 50px;
+        width: 220px;
+        line-height: 50px;
+        border-radius: 100px;
+        border: transparent;
+        transition: background-color 0.4s, transform 0.3s, border 0.2s;
+        &:hover {
+            background-color: #f9f9f9;
+            transform: translate(10px);
+            border: rgb(209, 209, 209) 2px solid;
+        }
+        .imageUser {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+        p {
+            margin-left: 20px;
+            font-weight: 500;
+            font-size: 16px;
+        }
+    }
+    .active {
+        background-color: #f9f9f9;
+        transform: translate(10px);
+        border: rgb(209, 209, 209) 2px solid;
+    }
+}
+.modal {
+    position: absolute;
+    z-index: 10;
+    width: 500px;
+    height: 475px;
+    border-left: lightgray 2px solid;
+    top: 100px;
+    right: -600px;
+    transform: translate(0px);
+    transition: transform 0.4s;
+}
+.active {
+    transform: translate(-600px);
+}
+h1{
+    position: absolute;
+    top:10px;
+    left:10px;
+    z-index: 100px;
+    cursor: pointer;
+}

@@ -8,12 +8,16 @@ import { NavigationService } from 'src/app/services/navigation.service';
   styleUrls: ['./side-menu.component.scss']
 })
 export class SideMenuComponent implements OnInit {
-
-  constructor(private navigationLinkService: NavigationService ) { }
+  menuState: boolean = true;
+  constructor(private navigationLinkService: NavigationService) { }
   links: NavigationLink[] = [];
   ngOnInit(): void {
     this.links = this.navigationLinkService.NavigationLinks;
-    console.log(this.links)
   }
-
+  closeMenu() {
+    this.menuState = false;
+  }
+  openMenu(){
+    this.menuState = true;
+  }
 }

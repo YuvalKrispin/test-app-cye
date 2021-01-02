@@ -2,17 +2,29 @@
     position: absolute;
     top: 0px;
     height: 100%;
+    left: -275px;
     width: 275px;
     background-color: #293c4e;
     color: white;
+    transition: transform 0.4s;
+    .open{
+        color:black;
+        font-weight: 900;
+        font-size: 20px;
+        position: absolute;
+        top: 30px;
+        left: 305px;
+        cursor: pointer;
+    }
     .close {
         font-weight: 900;
         font-size: 20px;
         position: absolute;
-        top: 10px;
-        left: 10px;
+        top: 30px;
+        left: 30px;
         cursor: pointer;
     }
+
     .imageContainer {
         margin-top: 60px;
         img {
@@ -35,13 +47,20 @@
     }
     .navLinks {
         margin-top: 60px;
+        .active {
+            background-color: #223342;
+            border-right: 5px #f19c28 solid;
+        }
         .linkContainer {
             height: 60px;
             cursor: pointer;
+            border-right: 0px #f19c28 solid;
+            transition: background-color 0.4s, border-right 0.3s;
             &:hover {
                 background-color: #223342;
                 border-right: 5px #f19c28 solid;
             }
+
             .iconNav {
                 position: relative;
                 top: 6px;
@@ -53,4 +72,8 @@
             }
         }
     }
+}
+
+.activemenu {
+    transform: translate(275px);
 }

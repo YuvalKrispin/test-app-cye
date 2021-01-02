@@ -7,10 +7,14 @@
     flex-direction: row-reverse;
     text-align: center;
     .iconsContainer{
+        cursor: pointer;
+        display:flex;
         position: relative;
         margin-top: 30px;
+        margin-right: 30px;
         span { 
             margin:auto 10px;
+            margin-bottom:50px;
         }
     }
 }

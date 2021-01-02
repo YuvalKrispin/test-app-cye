@@ -1,1 +1,15 @@
-<p>users works!</p>
+<h3>Users</h3>
+<p>If you want to get contact information to specific user, just select group and select <br />him from the list below
+</p>
+
+<div class="usersList">
+    <div class="singleUser" *ngFor="let singleUser of usersList" [routerLink]="singleUser.id?.toString()" routerLinkActive="active" (click)="onClick()">
+        <img [src]="singleUser.avatar" alt="singleUser.avatar" class="imageUser">
+        <p>{{singleUser.first_name}}</p>
+    </div>
+</div>
+
+<div class="modal" [ngClass]="{'active': openModal}">
+    <router-outlet></router-outlet>
+    <h1 (click)="closeModal()">X</h1>
+</div>

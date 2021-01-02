@@ -9,16 +9,20 @@ import { AuthGuard } from './shared/auth.guard';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
-  { path: 'sign-in' , component: LoginComponent},
-  { path: 'sign-up' , component: SignupComponent},
-  { path: 'home' ,  children:[ //canActivate:[AuthGuard]
-    {path: '' , component: HomeComponent},
-    {path: 'users' , component: UsersComponent, children:[
-      {path: ':id', component: UserComponent}
-    ]}
-  ]},
-  { path: '**' , component: PageNotFoundComponent}
+  { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
+  { path: 'sign-in', component: LoginComponent },
+  { path: 'sign-up', component: SignupComponent },
+  {
+    path: 'home', canActivate: [AuthGuard], component: HomeComponent, children: [
+      {
+        path: 'users', component: UsersComponent, children: [
+          { path: ':id', component: UserComponent },
+          { path: '**', component: PageNotFoundComponent }
+        ]
+      }
+    ]
+  },
+
 ];
 
 @NgModule({

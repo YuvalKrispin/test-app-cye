@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './menu/home/home.component';
 import { UsersComponent } from './menu/users/users.component';
 import { UserComponent } from './menu/users/user/user.component';
@@ -21,7 +21,6 @@ import { SideMenuComponent } from './components/ui/side-menu/side-menu.component
     AppComponent,
     LoginComponent,
     SignupComponent,
-    MenuComponent,
     HomeComponent,
     UsersComponent,
     UserComponent,
@@ -33,7 +32,9 @@ import { SideMenuComponent } from './components/ui/side-menu/side-menu.component
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,MatIconModule
+    FormsModule,
+    MatIconModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
