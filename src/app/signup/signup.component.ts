@@ -36,7 +36,6 @@ export class SignupComponent implements OnInit {
    }
     return this.http.post<any>('https://reqres.in/api/register', data).subscribe(userRes => {
       this.authService.login(userRes,data);
-      console.log(data)
     }, error => {
       this.router.navigate(['sign-in'])
       console.log(error.error.error)

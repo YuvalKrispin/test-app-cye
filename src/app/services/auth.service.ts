@@ -17,7 +17,6 @@ export class AuthService {
 
   }
   login(userRes: any, data: User) {
-    // console.log(userRes,data)
     if (userRes.token) {
       this.islogedin = true;
       this.logedUserData = {
