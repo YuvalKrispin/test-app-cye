@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { User } from '../models/User';
 
 
@@ -10,12 +10,21 @@ import { User } from '../models/User';
 })
 export class AuthService {
   islogedin: boolean = false
+  errorM = new Subject<string>();
   logedUserData: User | undefined;
   logedUserSub = new Subject<User>();
+  public currentUser: Observable<User>;//?
+  private currentUserSubject: BehaviorSubject<User>;//?
 
   constructor(private http: HttpClient, private router: Router) {
-
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser') || '{}'));//?
+    this.currentUser = this.currentUserSubject.asObservable();//?
   }
+
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
+  }
+
   login(userRes: any, data: User) {
     if (userRes.token) {
       this.islogedin = true;
@@ -26,7 +35,9 @@ export class AuthService {
         last_name: data.last_name || 'Krispin',
         hobbie: data.hobbie || 'Programer'
       }
+      localStorage.setItem('currentUser', JSON.stringify(this.logedUserData));
       this.logedUserSub.next(this.logedUserData)
+      console.log(this.logedUserData)
       this.router.navigate(['home'])
       console.log('user has been loged in successfully!')
     }
@@ -35,6 +46,7 @@ export class AuthService {
     this.islogedin = false
     this.logedUserData = undefined
     console.log('user has been loged out successfully!')
+    this.currentUserSubject.next(new User);
     this.router.navigate(['sign-in'])
   }
   loginAttempt(data: { email: string; password: string; }) {
@@ -43,6 +55,7 @@ export class AuthService {
     }, error => {
       this.router.navigate(['sign-in'])
       console.log(error.error.error)
+      this.errorM.next(error.error.error);
     })
   }
 

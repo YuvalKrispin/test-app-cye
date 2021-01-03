@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { NullTemplateVisitor } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
@@ -10,9 +10,11 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   httpcall: any;
-  constructor(private http: HttpClient , private authService: AuthService) { }
+  errorM:string |  undefined
+  constructor( private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.authService.errorM.subscribe((err:string)=>{this.errorM = err})
   }
 
   onSubmit(form:NgForm){

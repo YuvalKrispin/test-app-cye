@@ -6,6 +6,7 @@
             <input placeholder="Password" type="password" ngModel name="password" required>
             <button>Login</button>
         </form>
+        <p *ngIf="errorM" class="errorm">{{errorM}}</p>
         <a routerLink="/sign-up" class="redirectLink">Create User</a>
     </div>
 </div>
