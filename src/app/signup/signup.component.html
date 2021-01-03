@@ -1,1 +1,34 @@
-<p>signup works!</p>
+<div class="centerContainer">
+    <div class="card">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <input placeholder="Email" type="text" id="email" formControlName="email">
+            <span class="labelError"
+                *ngIf="!signupForm!.get('email')!.valid && signupForm!.get('email')!.touched">Please Enter A valid
+                Email!</span>
+            <input placeholder="Password" type="password" id="password" formControlName="password">
+            <div class="namefild" formGroupName="userName">
+                <input placeholder='First Name' type="text" id="firstName" formControlName="firstName">
+                <input placeholder="Last Name" type="text" id="lastName" formControlName="lastName">
+            </div>
+            <div class="radio">
+                <label><input type="radio" value="female" formControlName="gender">
+                    <p>Female</p>
+                </label>
+                <label><input type="radio" value="male" formControlName="gender">
+                    <p>Male</p>
+                </label>
+            </div>
+            <div formArrayName="hobbies">
+                <div class="hobbies">
+                    <h4>Hobbies:</h4>
+                    <button (click)="onAddHobby()" type="button" class='addHobby'>+ Add</button>
+                </div>
+                <input placeholder="Hobbie Name"
+                    *ngFor="let hobbie of signupForm.get('hobbies')['controls']; let i = index" type="text"
+                    [formControlName]="i">
+            </div>
+            <button>Submit</button>
+        </form>
+        <a routerLink="/sign-in">Return to the Login Page</a>
+    </div>
+</div>

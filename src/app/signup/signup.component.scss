@@ -1,0 +1,51 @@
+.centerContainer {
+    min-height: 325px;
+    .card {
+        .hobbies {
+            margin-bottom: 20px;
+            h4 {
+                margin: auto;
+            }
+            display: flex;
+            .addHobby {
+                width: 90px;
+            }
+        }
+        .labelError {
+            margin-left: 20px;
+            color: rgb(141, 141, 141);
+        }
+        .namefild {
+            display: flex;
+            input {
+                margin: auto;
+                display: block;
+                width: 40%;
+            }
+            #firstName {
+                margin-left: 18px;
+            }
+            #lastName {
+                margin-right: 18px;
+            }
+        }
+        .radio {
+            line-height: 55px;
+            margin: auto 14px;
+            display: flex;
+
+            p {
+                margin: auto;
+                text-align: left;
+            }
+            label {
+                width: 35%;
+                display: flex;
+                justify-content: left;
+            }
+            input {
+                width: 20px;
+            }
+        }
+    }
+}

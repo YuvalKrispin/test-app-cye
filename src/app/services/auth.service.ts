@@ -28,7 +28,6 @@ export class AuthService {
     this.router.navigate(['sign-in'])
   }
   loginAttempt(data: { email: string; password: string; }) {
-
     return this.http.post<any>('https://reqres.in/api/login', data).subscribe(userRes => {
       this.login(userRes, data);
     }, error => {
