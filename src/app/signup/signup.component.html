@@ -24,8 +24,8 @@
                     <button (click)="onAddHobby()" type="button" class='addHobby'>+ Add</button>
                 </div>
                 <input placeholder="Hobbie Name"
-                    *ngFor="let hobbie of signupForm.get('hobbies')['controls']; let i = index" type="text"
-                    [formControlName]="i">
+                    *ngFor="let hobbie of getControls(); let i = index"
+                    type="text" [formControlName]="i">
             </div>
             <button>Submit</button>
         </form>

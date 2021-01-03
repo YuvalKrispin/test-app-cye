@@ -4,5 +4,7 @@ export class User{
     token?: string;
     id?:number;
     first_name?:string;
+    last_name?:string;
     avatar?:string;
+    hobbie?:string;
 }

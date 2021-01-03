@@ -3,8 +3,8 @@
     <div class="open" *ngIf="!menuState" (click)="openMenu()" #closeMenuDiv>></div>
     <div class="imageContainer">
         <img src="https://simpleveganblog.com/wp-content/uploads/2019/03/Easy-marinated-tofu.jpg" alt="demo">
-        <h2>Yuval Krispin</h2>
-        <p>Programer</p>
+        <h2>{{fullName}}</h2>
+        <p>{{hobbie}}</p>
     </div>
     <div class="navLinks">
         <div class="linkContainer" *ngFor="let link of links" [routerLink]="!link.disabled? link.path: '404'" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
