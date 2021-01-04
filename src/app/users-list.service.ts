@@ -16,4 +16,10 @@ export class UsersListService {
   getUsers() {
     return this.users;
   }
+  addUser(newUser: User){
+    let user = new User;
+    user = newUser;
+    user.id = this.users.length + 1;
+    this.users.push(user)
+  }
 }

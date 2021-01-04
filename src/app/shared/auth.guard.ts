@@ -8,7 +8,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class AuthGuard implements CanActivate, CanActivateChild {
 
-  constructor(private authServive: AuthService , public router: Router) {
+  constructor(private authServive: AuthService, public router: Router) {
 
   }
   canActivate(
@@ -25,10 +25,13 @@ export class AuthGuard implements CanActivate, CanActivateChild {
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.authServive.islogedin) {
+    if (this.authServive.currentUserValue) {
       return true;
     }
-    else return false
+    else {
+      this.router.navigate(['sign-in']);
+      return false
+    }
   }
 
 }

@@ -9,7 +9,6 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class AuthService {
-  islogedin: boolean = false
   errorM = new Subject<string>();
   logedUserData: User | undefined;
   logedUserSub = new Subject<User>();
@@ -18,9 +17,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('loggedUser') || '{}'));//?
-    console.log(this.currentUserSubject, 'look at me')
     this.currentUser = this.currentUserSubject.asObservable();//?
-    console.log(this.currentUser, 'look at me')
 
   }
 
@@ -30,7 +27,6 @@ export class AuthService {
 
   login(userRes: any, data: User) {
     if (userRes.token) {
-      this.islogedin = true;
       this.logedUserData = {
         email: data.email,
         password: data.password,
@@ -40,13 +36,11 @@ export class AuthService {
       }
       localStorage.setItem('loggedUser', JSON.stringify(this.logedUserData));
       this.logedUserSub.next(this.logedUserData)
-      console.log(localStorage.getItem('loggedUser'))
       this.router.navigate(['home'])
       console.log('user has been loged in successfully!')
     }
   }
   logOut() {
-    this.islogedin = false
     this.logedUserData = undefined
     console.log('user has been loged out successfully!')
     this.currentUserSubject.next(new User);

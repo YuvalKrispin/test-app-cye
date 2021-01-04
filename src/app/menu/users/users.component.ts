@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/User';
 import { UsersListService } from 'src/app/users-list.service';
 
@@ -9,7 +11,8 @@ import { UsersListService } from 'src/app/users-list.service';
 })
 export class UsersComponent implements OnInit {
   openModal: boolean = false;
-  constructor(private ulService: UsersListService) { }
+
+  constructor(private ulService: UsersListService, public router: Router) { }
   usersList: User[] = []
   ngOnInit(): void {
     this.usersList = this.ulService.getUsers();
@@ -20,5 +23,10 @@ export class UsersComponent implements OnInit {
   }
   closeModal() {
     this.openModal = false
+    this.router.navigate(['/home/users'])
+  }
+  onSubmit(form: NgForm) {
+    console.log('submitted')
+    this.ulService.addUser(form.form.value)
   }
 }
