@@ -4,7 +4,7 @@
             <h3>Sign In</h3>
             <input placeholder="E-mail" type="text" ngModel name="email" email required>
             <input placeholder="Password" type="password" ngModel name="password" required>
-            <button>Login</button>
+            <button [disabled]="!f.valid">Login</button>
         </form>
         <p *ngIf="errorM" class="errorm">{{errorM}}</p>
         <a routerLink="/sign-up" class="redirectLink">Create User</a>

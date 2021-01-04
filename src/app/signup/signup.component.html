@@ -27,7 +27,7 @@
                     *ngFor="let hobbie of getControls(); let i = index"
                     type="text" [formControlName]="i">
             </div>
-            <button>Submit</button>
+            <button [disabled]="!signupForm.valid">Submit</button>
         </form>
         <a routerLink="/sign-in">Return to the Login Page</a>
     </div>
