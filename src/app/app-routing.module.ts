@@ -22,7 +22,7 @@ const routes: Routes = [
       }
     ]
   },
-
+  // { path: '**', component: PageNotFoundComponent } > this is just to prevent the site from reaching 404 for the demo
 ];
 
 @NgModule({

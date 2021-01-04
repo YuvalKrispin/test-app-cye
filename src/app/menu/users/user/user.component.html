@@ -1,11 +1,12 @@
-<div *ngIf="user?.avatar">
-    <img [src]="user?.avatar" [alt]="user?.avatar" class="backgroundImage">
-
-    <img [src]="user?.avatar" [alt]="user?.avatar" class="frontImage">
-    <div class="textUser">
-        <label>id</label>
-        <p>{{user?.id}}</p>
-        <label>Email Address</label>
-        <p>{{user?.email}}</p>
+<div class="container">
+    <div *ngIf="user?.avatar">
+        <img [src]="user?.avatar" [alt]="user?.avatar" class="backgroundImage">
+        <img [src]="user?.avatar" [alt]="user?.avatar" class="frontImage">
+        <div class="textUser">
+            <label>id</label>
+            <p>{{user?.id}}</p>
+            <label>Email Address</label>
+            <p>{{user?.email}}</p>
+        </div>
     </div>
 </div>

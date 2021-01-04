@@ -17,8 +17,11 @@ export class AuthService {
   private currentUserSubject: BehaviorSubject<User>;//?
 
   constructor(private http: HttpClient, private router: Router) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser') || '{}'));//?
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('loggedUser') || '{}'));//?
+    console.log(this.currentUserSubject, 'look at me')
     this.currentUser = this.currentUserSubject.asObservable();//?
+    console.log(this.currentUser, 'look at me')
+
   }
 
   public get currentUserValue(): User {
@@ -35,9 +38,9 @@ export class AuthService {
         last_name: data.last_name || 'Krispin',
         hobbie: data.hobbie || 'Programer'
       }
-      localStorage.setItem('currentUser', JSON.stringify(this.logedUserData));
+      localStorage.setItem('loggedUser', JSON.stringify(this.logedUserData));
       this.logedUserSub.next(this.logedUserData)
-      console.log(this.logedUserData)
+      console.log(localStorage.getItem('loggedUser'))
       this.router.navigate(['home'])
       console.log('user has been loged in successfully!')
     }

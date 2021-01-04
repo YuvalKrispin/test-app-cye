@@ -19,7 +19,7 @@ p {
         width: 220px;
         line-height: 50px;
         border-radius: 100px;
-        border: transparent;
+        border:  transparent 2px solid;
         transition: background-color 0.4s, transform 0.3s, border 0.2s;
         &:hover {
             background-color: #f9f9f9;

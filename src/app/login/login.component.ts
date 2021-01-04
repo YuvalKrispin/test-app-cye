@@ -10,14 +10,15 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   httpcall: any;
-  errorM:string |  undefined
-  constructor( private authService: AuthService) { }
+  errorM: string | undefined
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.authService.errorM.subscribe((err:string)=>{this.errorM = err})
+    this.authService.errorM.subscribe((err: string) => { this.errorM = err })
+
   }
 
-  onSubmit(form:NgForm){
+  onSubmit(form: NgForm) {
     console.log('submitted')
     this.authService.loginAttempt(form.form.value)
   }
